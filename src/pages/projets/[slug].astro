@@ -59,7 +59,7 @@ const projectSchema = {
             <span class="pv-chrome" aria-hidden="true"><i></i><i></i><i></i><b>{project.domain}</b></span>
           )}
           <img src={project.image} alt={project.imageAlt} width="1280" height="577" decoding="async" />
-          <figcaption>Capture réelle du projet — les informations sensibles ne sont pas publiées.</figcaption>
+          <figcaption>Capture du projet. Les informations sensibles ne sont pas publiées.</figcaption>
         </figure>
       </div>
     )}
@@ -83,7 +83,7 @@ const projectSchema = {
 
         <section id="realisation">
           <div class="case-section-no">02</div>
-          <h2>Ce que j’ai réellement fait</h2>
+          <h2>Ce que j’ai fait</h2>
           <ul>
             {project.work.map((item) => <li>{item}</li>)}
           </ul>
@@ -91,7 +91,7 @@ const projectSchema = {
 
         <section id="resultats">
           <div class="case-section-no">03</div>
-          <h2>Preuves et résultats</h2>
+          <h2>Résultats</h2>
           <ul class="results-list">
             {project.results.map((item) => <li>{item}</li>)}
           </ul>
@@ -110,7 +110,7 @@ const projectSchema = {
 
         <section id="limites" class="limits-section">
           <div class="case-section-no">04</div>
-          <h2>Ce que je ne prétends pas</h2>
+          <h2>Limites</h2>
           <ul>
             {project.limits.map((item) => <li>{item}</li>)}
           </ul>

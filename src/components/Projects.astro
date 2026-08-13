@@ -8,8 +8,7 @@ const [dataCommune, hexalith, homelab, automation] = projects;
   <div class="wrap">
     <div class="sec-head"><h2>Études de cas</h2><div class="rule"></div></div>
     <p class="sec-intro">
-      Pas une liste de technologies : le problème, les décisions, les preuves et
-      les limites de ce que j’ai réellement construit.
+      Pour chaque projet : le contexte, ce que j’ai fait, les résultats et les limites.
     </p>
 
     <!-- 01 · DataCommune — capture à gauche, copy à droite -->
@@ -51,10 +50,10 @@ const [dataCommune, hexalith, homelab, automation] = projects;
           ))}
         </dl>
         <div class="case-actions">
-          <a class="case-link" href={`/projets/${hexalith.slug}/`}>Voir les preuves <span aria-hidden="true">→</span></a>
+          <a class="case-link" href={`/projets/${hexalith.slug}/`}>Lire l’étude de cas <span aria-hidden="true">→</span></a>
         </div>
       </div>
-      <a class="case-shot" href={`/projets/${hexalith.slug}/`} aria-label={`${hexalith.imageAlt} — voir les preuves ${hexalith.name}`}>
+      <a class="case-shot" href={`/projets/${hexalith.slug}/`} aria-label={`${hexalith.imageAlt} — lire l’étude de cas ${hexalith.name}`}>
         <span class="pv-chrome" aria-hidden="true"><i></i><i></i><i></i><b>{hexalith.domain}</b></span>
         <img src={hexalith.image} alt={hexalith.imageAlt} width="1280" height="577" loading="lazy" decoding="async" />
       </a>
@@ -82,7 +81,7 @@ const [dataCommune, hexalith, homelab, automation] = projects;
           ))}
         </dl>
         <div class="case-actions">
-          <a class="case-link" href={`/projets/${homelab.slug}/`}>Voir les preuves <span aria-hidden="true">→</span></a>
+          <a class="case-link" href={`/projets/${homelab.slug}/`}>Lire l’étude de cas <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </article>
