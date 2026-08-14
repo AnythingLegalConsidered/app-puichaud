@@ -131,7 +131,7 @@ export const projects = [
     tags: ['PowerShell', 'Active Directory', 'IAM', 'Guardrails'],
     facts: [
       { value: '3', label: 'outils ciblés' },
-      { value: '21 000+', label: 'postes dans l’environnement' },
+      { value: '25 000+', label: 'postes dans l’environnement' },
       { value: '100 %', label: 'simulation avant écriture' },
     ],
     challenge:
