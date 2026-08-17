@@ -1,0 +1,39 @@
+---
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { projects } from '../../data/projects.js';
+---
+
+<Base
+  title="Projets — Ianis Puichaud"
+  description="Études de cas en Infrastructure as Code, GitOps, data engineering, Active Directory et homelab."
+  canonicalPath="/projets/"
+>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <Header />
+  <main id="main" class="wrap">
+    <h1 class="page-title">Projets</h1>
+    <p class="page-intro">
+      Des projets construits pour apprendre en opérant réellement : contexte, travail effectué,
+      résultats mesurés et limites connues.
+    </p>
+
+    <div class="project-list">
+      {projects.map((project) => (
+        <article class="project-entry">
+          <div class="project-heading">
+            <h2><a href={`/projets/${project.slug}/`}>{project.name}</a></h2>
+            <span class="project-status">{project.status}</span>
+          </div>
+          <div class="project-meta">{project.meta}</div>
+          <p>{project.summary}</p>
+          <p class="project-outcome">{project.outcome}</p>
+          <div class="tags">{project.tags.join(' · ')}</div>
+          <a class="text-link" href={`/projets/${project.slug}/`}>Lire l’étude de cas →</a>
+        </article>
+      ))}
+    </div>
+  </main>
+  <Footer />
+</Base>

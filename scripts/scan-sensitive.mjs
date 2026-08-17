@@ -63,6 +63,7 @@ const trackedFiles = execFileSync('git', ['ls-files', '-z'], { cwd: root })
 const files = [...new Set([...trackedFiles, ...listFiles(join(root, 'dist'))])];
 
 for (const file of files) {
+  if (!existsSync(file)) continue;
   if (skippedExtensions.has(extname(file).toLowerCase())) continue;
   if (statSync(file).size > maxFileSize) continue;
 

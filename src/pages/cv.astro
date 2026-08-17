@@ -1,0 +1,103 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base
+  title="CV — Ianis Puichaud"
+  description="Parcours, formation et compétences d’Ianis Puichaud, administrateur systèmes et réseaux à Nantes."
+  canonicalPath="/cv/"
+>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <Header />
+  <main id="main" class="wrap">
+    <header class="resume-head">
+      <h1 class="page-title">Ianis Puichaud</h1>
+      <p class="lede">Administrateur Systèmes &amp; Réseaux · Nantes</p>
+      <p class="coords">
+        <a href="mailto:pro@puichaud.com">pro@puichaud.com</a> ·
+        <a href="/cv.pdf" target="_blank" rel="noopener">CV PDF</a> ·
+        <a href="https://github.com/AnythingLegalConsidered" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://www.linkedin.com/in/ianispuichaud" target="_blank" rel="noopener">LinkedIn</a>
+      </p>
+    </header>
+
+    <section class="resume-section">
+      <h2 class="section-label">Résumé</h2>
+      <p>
+        Administrateur systèmes et réseaux en alternance chez Equans. Je travaille sur le
+        support N2, les identités Active Directory et Entra ID, le parc Windows et la sécurité
+        du poste. En dehors de l’entreprise, je construis et exploite une infrastructure Proxmox
+        en IaC pour pratiquer l’automatisation, l’observabilité et la reprise après incident.
+      </p>
+    </section>
+
+    <section class="resume-section">
+      <h2 class="section-label">Compétences</h2>
+      <p class="skill-line"><strong>Entreprise —</strong> Windows 10/11, Microsoft 365, Active Directory, Entra ID, Intune, CyberArk EPM, Zscaler, ServiceNow.</p>
+      <p class="skill-line"><strong>Infrastructure —</strong> Proxmox VE, LXC, Docker, Terraform, Ansible, Tailscale, Caddy.</p>
+      <p class="skill-line"><strong>Observabilité —</strong> Grafana, Prometheus, Loki, Uptime Kuma.</p>
+      <p class="skill-line"><strong>Développement —</strong> PowerShell, Python, Bash, GitHub Actions, FastAPI, PostgreSQL/PostGIS.</p>
+    </section>
+
+    <section class="resume-section">
+      <h2 class="section-label">Expérience</h2>
+      <details class="entry" open>
+        <summary>
+          <span class="entry-title">Administrateur Systèmes &amp; Réseaux</span>
+          <span class="entry-meta">Equans · 09/2025 – présent · Nantes</span>
+        </summary>
+        <div class="entry-body">
+          <ul>
+            <li>Gestion des identités Active Directory et Entra ID.</li>
+            <li>Support de niveau 2 sur un parc de plus de 25&nbsp;000 postes.</li>
+            <li>Sécurité du poste, onboarding et masterisation.</li>
+            <li>Automatisation PowerShell avec simulation et contrôles avant écriture.</li>
+          </ul>
+        </div>
+      </details>
+      <details class="entry">
+        <summary>
+          <span class="entry-title">Technicien Support N2</span>
+          <span class="entry-meta">Equans – Axima · 01/2024 – 08/2025 · Nantes</span>
+        </summary>
+        <div class="entry-body">
+          <p>Résolution d’incidents Windows, Microsoft 365, Teams, SharePoint, Intune, applications métier et accès SAP.</p>
+        </div>
+      </details>
+      <details class="entry">
+        <summary>
+          <span class="entry-title">Service Desk &amp; Support N1</span>
+          <span class="entry-meta">Helpline, puis DCS Easyware · 10/2022 – 10/2023 · Nantes</span>
+        </summary>
+        <div class="entry-body">
+          <p>Diagnostic, résolution de premier niveau et escalade des incidents complexes, au contact direct des utilisateurs.</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="resume-section">
+      <h2 class="section-label">Formation</h2>
+      <details class="entry" open>
+        <summary>
+          <span class="entry-title">BAC+3 SYSOPS — titre RNCP niveau 6</span>
+          <span class="entry-meta">EPSI Nantes · 2025 – 2026</span>
+        </summary>
+        <div class="entry-body">
+          <p>Administration systèmes et réseaux, cloud, automatisation, sécurité et conduite de projets d’infrastructure.</p>
+        </div>
+      </details>
+      <details class="entry">
+        <summary>
+          <span class="entry-title">Objectif : Master Infrastructure &amp; Cloud</span>
+          <span class="entry-meta">Alternance recherchée · septembre 2026</span>
+        </summary>
+        <div class="entry-body">
+          <p>Approfondir l’architecture d’infrastructure, le cloud et l’automatisation, avec une progression vers le DevOps à moyen terme.</p>
+        </div>
+      </details>
+    </section>
+  </main>
+  <Footer />
+</Base>
