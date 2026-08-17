@@ -12,7 +12,8 @@ const origin = 'https://puichaud.com';
 const canonical = new URL(canonicalPath, origin).toString();
 const ogImage = new URL(image, origin).toString();
 // Polices auto-hébergées (perf + pas d'appel tiers vers Google — conformité CNIL)
-import '@fontsource/cinzel/700.css';
+import '@fontsource/newsreader/400.css';
+import '@fontsource/newsreader/600.css';
 import '@fontsource/inter/400.css';
 import '@fontsource/inter/500.css';
 import '@fontsource/inter/600.css';
@@ -20,7 +21,7 @@ import '@fontsource/jetbrains-mono/400.css';
 import '@fontsource/jetbrains-mono/500.css';
 import inter400 from '@fontsource/inter/files/inter-latin-400-normal.woff2?url';
 import inter600 from '@fontsource/inter/files/inter-latin-600-normal.woff2?url';
-import cinzel700 from '@fontsource/cinzel/files/cinzel-latin-700-normal.woff2?url';
+import newsreader400 from '@fontsource/newsreader/files/newsreader-latin-400-normal.woff2?url';
 import '../styles/global.css';
 ---
 
@@ -32,13 +33,13 @@ import '../styles/global.css';
   <title>{title}</title>
   <meta name="description" content={description} />
   {robots && <meta name="robots" content={robots} />}
-  <meta name="theme-color" content="#273329" />
+  <meta name="theme-color" content="#fbfaf5" />
   <link rel="canonical" href={canonical} />
   <link rel="sitemap" href="/sitemap-index.xml" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preload" href={inter400} as="font" type="font/woff2" crossorigin />
   <link rel="preload" href={inter600} as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href={cinzel700} as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href={newsreader400} as="font" type="font/woff2" crossorigin />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -80,6 +81,5 @@ import '../styles/global.css';
 </head>
 <body>
   <slot />
-  <script is:inline src="/scripts/site.js" defer></script>
 </body>
 </html>
