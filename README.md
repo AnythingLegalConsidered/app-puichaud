@@ -1,27 +1,27 @@
 # puichaud.com — portfolio Ianis Puichaud
 
-Site portfolio statique : landing page thème "Forêt & Ivoire" avec sections Hero, Métriques
-homelab, Projets (études de cas), Timeline, Infra, Compétences et Contact, plus une page
-statique par projet (`/projets/<slug>/`).
+Site statique en mise en page éditoriale (thème « Forêt & Ivoire ») : une page d'accueil en
+prose, une page CV, une liste de projets et une page par étude de cas (`/projets/<slug>/`).
 
 ## Stack
 
-- **Astro** (statique, zéro framework côté client)
-- **CSS** global dans `src/styles/global.css` — variables thème dans `:root`
+- **Astro** (statique, zéro JS côté client)
+- **CSS** global dans `src/styles/global.css`, variables thème dans `:root`
 - **Polices** auto-hébergées via `@fontsource/*` (importées dans `Base.astro`)
-- **Données projets** : `src/data/projects.js` (JS plain exporté, branché dans `Projects.astro`
-  et `src/pages/projets/[slug].astro`)
-- **Métriques** : statiques dans `Metrics.astro` ; `scripts/stats-export/` reste dispo
-  si un jour on branche des stats live depuis le homelab
+- **Données projets** : `src/data/projects.js`, lues par `projets/index.astro` et `projets/[slug].astro`
 
 ## Commandes
 
 ```sh
 npm install
-npm run dev        # serveur local
-npm run build      # build statique → dist/
-npm run preview    # prévisualiser le build
-npm run check      # vérification TypeScript/Astro
+npm run dev            # serveur local
+npm run build          # build statique → dist/ + génération CSP
+npm run preview        # prévisualiser le build
+npm run check          # vérification TypeScript/Astro
+npm test               # tests CSP
+npm run validate:html  # html-validate sur dist/
+npm run validate:site  # liens internes, sitemap, garde-fou de contenu
+npm run scan:sensitive # scan données sensibles
 ```
 
 ## Structure
@@ -29,49 +29,39 @@ npm run check      # vérification TypeScript/Astro
 ```
 src/
   layouts/Base.astro          # HTML, SEO (canonical, OG, JSON-LD), import CSS global
+  components/Header.astro     # nav (Projets, CV, Contact)
+  components/Footer.astro     # liens GitHub, LinkedIn, email
   pages/
-    index.astro               # page principale — assemble tous les composants
-    projets/[slug].astro      # pages projet statiques (une par étude de cas)
-    404.astro                 # page d'erreur
-  components/
-    Header.astro              # nav sticky + burger mobile
-    Hero.astro                # nom, titre, badge dispo, CTA CV/contact
-    Metrics.astro             # métriques homelab (valeurs statiques dans le composant)
-    Timeline.astro            # timeline expérience/formation
-    Projects.astro            # études de cas en rangées alternées — données depuis src/data/projects.js
-    Infra.astro               # spec sheet infrastructure homelab
-    Skills.astro              # grille compétences
-    Contact.astro             # mailto + liens GitHub/LinkedIn
-    Footer.astro
-  styles/global.css           # variables CSS, reset, layout, styles partagés
-  data/projects.js            # données projets (rangées landing + pages projet)
+    index.astro               # accueil (présentation en prose)
+    cv.astro                  # CV en HTML
+    projets/index.astro       # liste des études de cas
+    projets/[slug].astro      # une page par étude de cas
+    404.astro
+  styles/global.css
+  data/projects.js            # contenu des études de cas
 public/
-  favicon.svg
-  og-image.png
-  robots.txt
-  cv.pdf
+  cv.pdf                      # CV PDF (imprimé depuis CV/CV_Ianis.html, dossier non versionné)
   projects/                   # captures d'écran des projets
-  scripts/site.js             # JS client (nav, interactions)
-  _headers                    # en-têtes sécurité Cloudflare Pages
-  _redirects                  # anciens chemins (ex-/docs/CV-*.pdf) → /cv.pdf
+  _headers                    # en-têtes sécurité + CSP Cloudflare Pages
+  _redirects                  # anciens chemins → /cv.pdf
 scripts/
   generate-csp.mjs, csp.mjs   # génération/vérification du header CSP (post-build)
-  validate-site.mjs           # liens internes + sitemap
+  validate-site.mjs           # liens internes, sitemap, formulations interdites
   scan-sensitive.mjs          # scan données sensibles
-  stats-export/               # script Python à faire tourner côté infra (voir son README)
+  stats-export/               # script Python non branché (ancien bloc Métriques supprimé)
 ```
 
 ## Éditer le contenu
 
 | Quoi | Où |
 |------|-----|
-| Projets (rangées + pages) | `src/data/projects.js` |
-| Hero / badge dispo | `src/components/Hero.astro` |
-| Infra spec sheet | `src/components/Infra.astro` |
-| Compétences | `src/components/Skills.astro` |
-| Expérience / formation | `src/components/Timeline.astro` |
-| Contact | `src/components/Contact.astro` |
-| Métriques | `src/components/Metrics.astro` |
+| Présentation | `src/pages/index.astro` |
+| CV (HTML) | `src/pages/cv.astro` |
+| Projets | `src/data/projects.js` |
+| CV (PDF) | `CV/CV_Ianis.html` puis réimpression vers `public/cv.pdf` |
+
+Le garde-fou de `validate-site.mjs` fait échouer la validation si « alternance », « Master »
+ou « septembre 2026 » réapparaissent dans le site généré.
 
 ## Règles de confidentialité (bloquantes)
 
@@ -95,8 +85,3 @@ Secrets requis dans le repo GitHub :
 - `CLOUDFLARE_ACCOUNT_ID`
 
 Domaine : `puichaud.com` (DNS Cloudflare, apex).
-
-## Branchement stats live (optionnel, à faire côté infra)
-
-Voir `scripts/stats-export/README.md`. Une fois un `stats.json` réel publié sur la passerelle,
-brancher `Metrics.astro` dessus (fetch au build ou côté client).

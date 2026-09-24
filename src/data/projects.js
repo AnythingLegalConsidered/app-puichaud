@@ -34,8 +34,6 @@ export const projects = [
     ],
     image: '/projects/datacommune-homepage.png',
     imageAlt: 'Page d’accueil de DataCommune',
-    accent: 'var(--bronze-dark)',
-    domain: 'datacommune.fr',
     gallery: [
       { src: '/projects/datacommune-datasets.png', alt: 'Catalogue des jeux de données DataCommune' },
       { src: '/projects/datacommune-api.png', alt: 'Documentation interactive de l’API DataCommune' },
@@ -77,8 +75,6 @@ export const projects = [
     ],
     image: '/projects/hexalith-gitops.png',
     imageAlt: 'Pipeline Terraform Hexalith réussi dans GitHub Actions',
-    accent: 'var(--gold-dark)',
-    domain: 'github.com',
     gallery: [
       { src: '/projects/hexalith-sso.png', alt: 'Connexion GLPI proposée par le fournisseur d’identité Authentik' },
     ],
@@ -110,13 +106,12 @@ export const projects = [
     results: [
       'Treize conteneurs déclarés en IaC, protégés contre la suppression accidentelle.',
       'Sauvegardes locales et hors site ; exercices de restauration documentés.',
-      'Bascule LAN-only effectuée par vagues avec contrôles fonctionnels avant chaque étape.',
+      'Bascule LAN-only en cours, par vagues, avec contrôles fonctionnels avant chaque étape.',
     ],
     limits: [
-      'Un seul nœud Proxmox porte aujourd’hui l’essentiel de la charge : la sauvegarde est prouvée, la haute disponibilité ne l’est pas.',
+      'Un seul nœud Proxmox porte l’essentiel de la charge : les sauvegardes sont testées, la haute disponibilité ne l’est pas.',
       'Le dépôt et la topologie détaillée restent privés pour ne pas exposer les accès internes.',
     ],
-    accent: 'var(--terracotta-dark)',
   },
   {
     slug: 'automatisation-ad',
@@ -149,8 +144,5 @@ export const projects = [
       'Le code et les données restent privés car ils appartiennent au contexte d’entreprise.',
       'L’outil assiste la décision ; il ne remplace ni la validation humaine ni les contrôles natifs.',
     ],
-    accent: 'var(--ink-muted)',
   },
 ];
-
-export const getProject = (slug) => projects.find((project) => project.slug === slug);
