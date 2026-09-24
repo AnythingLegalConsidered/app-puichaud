@@ -59,7 +59,7 @@ export const projects = [
       { value: '15–133 s', label: 'restauration mesurée' },
     ],
     challenge:
-      'Construire une chaîne d’infrastructure complète et vérifiable, alors que mon quotidien chez Equans est centré sur le support poste.',
+      'Construire une chaîne d’infrastructure complète et vérifiable, alors que mon quotidien chez Equans était centré sur le support poste.',
     work: [
       'Terraform provisionne les LXC sur Proxmox, Ansible configure les services. Le tout est appliqué depuis un runner GitHub Actions auto-hébergé.',
       'SSO validé en SAML avec GLPI et en OpenID Connect avec Grafana.',

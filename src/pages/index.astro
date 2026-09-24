@@ -6,53 +6,48 @@ import Footer from '../components/Footer.astro';
 
 <Base
   title={'Ianis Puichaud — Administrateur Systèmes & Réseaux'}
-  description="Administrateur systèmes et réseaux à Nantes. Support N2, identités Microsoft, Infrastructure as Code et homelab Proxmox."
+  description="Administrateur systèmes et réseaux à Nantes. Support N2, identités Microsoft, automatisation des processus de support et IA en entreprise."
 >
   <a class="skip-link" href="#main">Aller au contenu</a>
   <Header />
   <main id="main" class="wrap prose">
-    <h1 class="sr-only">Ianis Puichaud — Administrateur Systèmes &amp; Réseaux</h1>
-    <div class="home-intro">
-      <div class="monogram" aria-hidden="true">IP</div>
-      <p class="lede">
-        Je travaille entre le support de niveau 2, l’administration des identités
-        et l’automatisation — en entreprise sur un grand parc Windows, chez moi sur
-        une infrastructure que je peux démonter et reconstruire.
-      </p>
-    </div>
+    <header class="home-head">
+      <h1 class="page-title">Ianis Puichaud</h1>
+      <p class="lede">Administrateur systèmes et réseaux à Nantes. Support N2, identités Microsoft, automatisation.</p>
+    </header>
 
     <p>
-      Je suis <strong>administrateur systèmes et réseaux en alternance chez Equans</strong>,
-      à Nantes. Je gère des comptes Active Directory et Entra ID, des postes Windows,
-      leur sécurité et les incidents qui dépassent le premier niveau de support. Le
-      parc compte plus de 25&nbsp;000 postes : une modification simple en apparence doit
-      donc rester contrôlée, traçable et réversible.
+      J’ai travaillé chez <strong>Equans</strong> en support de niveau 2, sur un parc de plus
+      de 25&nbsp;000 postes Windows : comptes Active Directory et Entra ID, sécurité des postes,
+      incidents que le premier niveau ne résout pas. À cette échelle, chaque modification doit
+      rester contrôlée et réversible.
     </p>
 
     <p>
-      En parallèle, je termine un BAC+3 SYSOPS à l’EPSI Nantes et je vise un{' '}
-      <strong>Master Infrastructure &amp; Cloud en alternance à partir de septembre 2026</strong>.
-      À court terme, je veux consolider mon métier de SysAdmin. À moyen terme, je me
-      dirige vers le DevOps et l’automatisation — sans brûler les étapes d’exploitation
-      qui donnent du sens aux outils.
+      En support, une grande partie du temps part dans des tâches répétitives. J’ai beaucoup
+      réfléchi à ce qui peut être automatisé, et je pense que l’IA va devenir un outil courant
+      dans ces métiers. Mon objectif aujourd’hui : automatiser des processus de support
+      informatique, d’infogérance et de sécurité en entreprise.
     </p>
 
     <p>
-      Mon homelab me sert de terrain d’essai. Treize conteneurs LXC sont décrits par
-      Terraform et configurés avec Ansible. Les sauvegardes suivent une stratégie 3-2-1
-      et, surtout, sont restaurées pour vérifier qu’elles fonctionnent. J’y pratique aussi
-      l’observabilité, le SSO, le réseau privé et les déploiements continus.
+      Je me forme sur le fonctionnement des modèles (embeddings, RAG), sur leur hébergement
+      (quantification, poids, performance) et sur les outils agentiques.
+      <a href="/projets/datacommune/">DataCommune</a>, mon agrégateur de données publiques,
+      est construit de cette façon : je fournis les plans, des agents LLM se répartissent
+      les tâches.
     </p>
 
     <p>
-      J’ai également construit <a href="/projets/datacommune/">DataCommune</a>, une
-      plateforme d’agrégation de données publiques, et <a href="/projets/hexalith/">Hexalith</a>,
-      un lab GitOps documenté autour de Proxmox, Terraform, Ansible et de la gestion
-      d’identité. Le détail de ces réalisations se trouve dans <a href="/projets/">mes projets</a>.
+      Mon homelab me sert de terrain d’essai : treize conteneurs LXC décrits avec Terraform
+      et configurés avec Ansible, des sauvegardes 3-2-1 dont je teste la restauration, du SSO
+      et de l’observabilité.
     </p>
 
     <p>
-      Pour le parcours complet, les compétences et les expériences : <a href="/cv/">voir mon CV</a>.
+      J’ai aussi monté <a href="/projets/hexalith/">Hexalith</a>, un lab GitOps documenté.
+      Le détail est dans <a href="/projets/">mes projets</a>, le parcours complet
+      sur <a href="/cv/">mon CV</a>.
     </p>
   </main>
   <Footer />

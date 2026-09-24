@@ -165,6 +165,24 @@ function validateSitemap(htmlFiles) {
   return { urls: sitemapUrls.size, errors };
 }
 
+// Content guard: these wordings were purged on 2026-08-14 (job search, no more
+// alternance/Master) and came back silently with a redesign. Fail the build if they return.
+const forbiddenWordings = [/alternance/i, /\bMaster\b/, /septembre 2026/i];
+
+function validateContent(htmlFiles) {
+  const errors = [];
+  for (const file of htmlFiles) {
+    const text = readFileSync(file, 'utf8')
+      .replace(/<script[\s\S]*?<\/script>/gi, '')
+      .replace(/<[^>]+>/g, ' ');
+    for (const pattern of forbiddenWordings) {
+      const match = text.match(pattern);
+      if (match) errors.push(`${relative(dist, file)}: forbidden wording (${match[0]})`);
+    }
+  }
+  return { errors };
+}
+
 if (!existsSync(dist)) {
   console.error('dist/ is missing; run the build before site validation.');
   process.exit(1);
@@ -173,7 +191,8 @@ if (!existsSync(dist)) {
 const htmlFiles = listFiles(dist, '.html');
 const links = validateLinks(htmlFiles);
 const sitemap = validateSitemap(htmlFiles);
-const errors = [...links.errors, ...sitemap.errors];
+const content = validateContent(htmlFiles);
+const errors = [...links.errors, ...sitemap.errors, ...content.errors];
 
 if (errors.length > 0) {
   for (const error of errors) console.error(`ERROR: ${error}`);
